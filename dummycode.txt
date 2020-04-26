@@ -1,0 +1,202 @@
+const [name, setName] = useState('')
+  const [comment, setComment] = useState('')
+
+  const [people, setPeople] = useState([
+    { name: 'ars1', id: '1' },
+    { name: 'ars2', id: '2' },
+    { name: 'ars3', id: '3' },
+    { name: 'ars4', id: '4' },
+    { name: 'ars5', id: '5' },
+    { name: 'ars6', id: '6' },
+    { name: 'ars7', id: '7' },
+    { name: 'ars8', id: '8' },
+    { name: 'ars9', id: '9' },
+    { name: 'ars10', id: '10' },
+    { name: 'ars11', id: '11' },
+    { name: 'ars12', id: '13' }
+  ])
+
+
+  
+  const displayItem = (id) =>{
+    //alert(id);
+    setPeople((obj) =>{ return obj.filter(
+      people => people.id != id
+    )})
+  }
+
+
+  
+  
+  
+  
+  // const ChangeState = () =>{
+  //   setName('Khan');
+  // }
+
+  //// View, Text, Button and State
+      //   <View style={styles.container}>
+    //     <View style={styles.header}>
+    //       <Text>This is header</Text>
+    //     </View>
+    // <Text>Hello {name}</Text>
+    //     <View style={styles.footer}><Text>This is footer</Text></View>
+    //     <View style={styles.buttonContainer}><Button title="Update State" onPress={ChangeState} ></Button></View>
+    //   </View>
+
+//// Text Input Form
+    // <View style={styles.container}>
+    //   <View>
+    //     <Text>Enter Name:</Text>
+    //     <TextInput
+    //       placeholder='e.g Ars'
+    //       style={styles.input}
+    //       onChangeText={(val) => setName(val)}
+    //     ></TextInput>
+    //   </View>
+    //   <View>
+    //     <Text>Enter Comment:</Text>
+    //     <TextInput
+    //       multiline
+    //       placeholder='e.g Ars'
+    //       style={styles.input}
+    //       onChangeText={(val) => setComment(val)}
+    //     ></TextInput>
+    //   </View>
+    //   <View>
+    //     <Text> Name is: {name}</Text>
+    //     <Text>Comment is: {comment}</Text>
+    //   </View>
+    // </View>
+
+
+   {/* <FlatList
+    numColumns={2}
+    data={people}
+    renderItem={({item})=>{
+      <View style={styles.container}>
+      <Text style={styles.item}> {item.name}</Text>
+      </View>
+    }}
+    /> */}
+
+
+
+  <ScrollView>
+      {people.map((item) => {
+
+
+        return (
+          
+          <View style={styles.item} key={item.key}>
+          <TouchableOpacity onPress={()=>displayItem(item.id)}>
+            <Text> {item.name}</Text>
+            </TouchableOpacity>
+          </View>
+          
+        )
+      })}
+      </ScrollView>
+
+
+      
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    backgroundColor: 'black'
+  },
+  footer: {
+    backgroundColor: 'blue'
+  },
+  buttonContainer: {
+    backgroundColor: 'blue'
+  },
+  input: {
+    borderColor: 'black',
+    borderWidth: 1
+  },
+  item: {
+    marginTop: 24,
+    backgroundColor: 'green',
+    padding:20,
+    fontSize:24,
+    width: 300
+    
+  }
+});
+
+
+  <View style={styles.container}>
+      <Home></Home>
+      <View style={styles.content}>
+        <View style={styles.list} >
+          <ScrollView>
+            {shop.map((item) => {
+              return (
+                <View style={styles.item} key={item.key}>
+                  <TouchableOpacity onPress={() => displayItem(item.id)}>
+                    <Text> {item.name}</Text>
+                  </TouchableOpacity>
+                </View>
+              )
+            })}
+          </ScrollView>
+        </View>
+      </View>
+    </View>
+
+
+
+
+  const [shop, setShop] = useState([
+    { name: 'Buy Coffe', id: '1' },
+    { name: 'Create', id: '1' },
+    { name: 'Switch', id: '1' }
+  ])
+
+
+  
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  content: {
+    padding: 40
+  },
+  list: {
+    padding: 40
+  }
+
+});
+
+  const displayItem = () => {
+
+  }
+  
+
+  
+const Drawer = createDrawerNavigator();
+
+function MyDrawer() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Feed" component={Home} />
+      <Drawer.Screen name="Article" component={About} />
+    </Drawer.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyDrawer />
+    </NavigationContainer>
+  );
