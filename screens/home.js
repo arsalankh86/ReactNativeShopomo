@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Modal } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Card from '../shared/Card';
 import { Icon } from 'react-native-elements';
+import Signup from './Signup';
 
 export default function Home({ navigation }) {
 
@@ -39,7 +40,7 @@ export default function Home({ navigation }) {
       <Modal visible={modalX} animationType='slide'>
         <View style={styles.modalContent}>
           <Icon name='close' onPress={() => setmodalX(false)} size={28} style={{ ...styles.modalToogle, ...styles.closeModal }} />
-          <Text>This is modal</Text>
+          <Signup></Signup>
         </View>
       </Modal>
 
