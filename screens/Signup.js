@@ -39,7 +39,7 @@ export default function Signup() {
                         >
                         </TextInput>
 
-                        <Button title='Create' color='#eb4034' onPress={props.handleSubmit} ></Button>
+                        <Button title='SignUp' color='#eb4034' onPress={props.handleSubmit} ></Button>
 
                     </View>
                 )}

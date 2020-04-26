@@ -4,11 +4,12 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Card from '../shared/Card';
 import { Icon } from 'react-native-elements';
 import Signup from './Signup';
+import AddFood from './Add Food';
 
 export default function Home({ navigation }) {
 
 
-  const [people, setPeople] = useState([
+  const [foods, setFood] = useState([
     { name: 'Pizza Max', price: '$100', id: '1' },
     { name: 'Pizza Point Large', price: '$17', id: '2' },
     { name: 'Burger O Clock', price: '$50', id: '3' },
@@ -34,19 +35,27 @@ export default function Home({ navigation }) {
 
   const [modalX, setmodalX] = useState(false);
 
+  const addFood = (food) => {
+    food.id = Math.random.toString();
+    setFood((currentFood) => {
+      return [food, ...currentFood];
+    });
+    setmodalX(false);
+  }
+
   return (
     <View>
 
       <Modal visible={modalX} animationType='slide'>
         <View style={styles.modalContent}>
           <Icon name='close' onPress={() => setmodalX(false)} size={28} style={{ ...styles.modalToogle, ...styles.closeModal }} />
-          <Signup></Signup>
+          <AddFood addFood={addFood} ></AddFood>
         </View>
       </Modal>
 
       <Icon name='add' onPress={() => setmodalX(true)} size={28} style={styles.modalToogle} />
       <ScrollView>
-        {people.map((item) => {
+        {foods.map((item) => {
           return (
             <View key={item.key}>
 

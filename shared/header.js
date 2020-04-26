@@ -16,7 +16,7 @@ export default function Header({navigation}) {
             {/* <MaterialIcons name='menu' onPress={handler} size='28' style={styles.icon}></MaterialIcons> */}
             <Icon name='menu'  onPress={handler} size={38} style={styles.icon} />
             <View>
-                <Text style={styles.headertext}>Reviewer</Text>
+                <Text style={styles.headertext}> Shopomo Food Items</Text>
             </View>
         </View>
     );
